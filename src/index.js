@@ -4,4 +4,9 @@ const object = {
     items: 3
 };
 
-console.log(object)
+const another = {
+  ...object,
+  elements: 4
+};
+
+console.log({object, another})
