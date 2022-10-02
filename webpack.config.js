@@ -1,15 +1,18 @@
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 let mode = 'development';
+let target = 'web';
 
 process.env.NODE_ENV === 'production' ? mode = 'production' : mode = 'development';
+process.env.NODE_ENV === 'production' ? target = 'browserslist' : target = 'web';
 
 module.exports = {
     mode,
+    target,
     devtool: 'source-map',
     module: {
         rules: [
             {
-              test: /\.s?css$/i,
+                test: /\.(s[ac]|c)ss$/i,
                 use: [miniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
             },
             {
