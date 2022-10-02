@@ -1,3 +1,5 @@
+import './styles/styles.scss';
+
 const object = {
     staff: 1,
     things: 2,
