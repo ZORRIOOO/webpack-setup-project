@@ -1,14 +1,4 @@
-import './styles/styles.scss';
+import {render} from "react-dom";
+import App from './components/App';
 
-const object = {
-    staff: 1,
-    things: 2,
-    items: 3
-};
-
-const another = {
-  ...object,
-  elements: 4
-};
-
-console.log({object, another})
+render(<App />, document.getElementById('root'));

@@ -16,7 +16,7 @@ module.exports = {
                 use: [miniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
@@ -27,6 +27,11 @@ module.exports = {
     plugins: [
         new miniCssExtractPlugin()
     ],
+    resolve: {
+        extensions: [
+            '.js', '.jsx'
+        ]
+    },
     devServer: {
         static: './dist',
         hot: true
