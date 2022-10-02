@@ -1,8 +1,10 @@
-//const path = require('path');
+let mode = 'development';
+
+process.env.NODE_ENV === 'production' ? mode = 'production' : mode = 'development';
 
 module.exports = {
-    mode: 'development',
-    devtool: false,
+    mode,
+    devtool: 'source-map',
     module: {
         rules: [
             {
