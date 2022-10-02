@@ -8,12 +8,27 @@ process.env.NODE_ENV === 'production' ? target = 'browserslist' : target = 'web'
 module.exports = {
     mode,
     target,
+    output: {
+        assetModuleFilename: 'images/[hash][ext][query]'
+    },
     devtool: 'source-map',
     module: {
         rules: [
             {
+                test: /\.(png|jpe?g|jpg|gif|svg)$/i,
+                type: 'asset/resource'
+            },
+            {
                 test: /\.(s[ac]|c)ss$/i,
-                use: [miniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+                use: [
+                    {
+                        loader: miniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: ''
+                        }
+                    },
+                    'css-loader', 'postcss-loader', 'sass-loader'
+                ]
             },
             {
                 test: /\.(js|jsx)$/,
